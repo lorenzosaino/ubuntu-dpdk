@@ -1,0 +1,3 @@
+# Ignore all files starting with . (e.g. .vagrant, .*project) but not .gitignore
+.*
+!.gitignore
