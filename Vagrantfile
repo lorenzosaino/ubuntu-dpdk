@@ -57,6 +57,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # Assign 2 cores
       vb.cpus = 2
 
+      # Configure VirtualBox to enable passthrough of SSE 4.1 and SSE 4.2
+      # instructions, according to this:
+      # https://www.virtualbox.org/manual/ch09.html#sse412passthrough
+      # This step is fundamental otherwise DPDK won't build.
+      # It is possible to verify in the guest OS that these changes took effect
+      # by running "cat /proc/cpuinfo" and checking that "sse4_1" and "sse4_2"
+      # are listed among the CPU flags
+      vb.customize ["setextradata", :id, "VBoxInternal/CPUM/SSE4.1", "1"]
+      vb.customize ["setextradata", :id, "VBoxInternal/CPUM/SSE4.2", "1"]
+
   #   # Don't boot with headless mode
   #   vb.gui = true
   #

@@ -14,11 +14,11 @@ If you do not see it in the list, then install it with:
 At this stage, you are ready to set up the virtual machine with the Intel DPDK.
 Open a shell and move to the directory where this README file is located and type:
 
-    $ sh create.sh
+    $ vagrant up
 
 This will create a Vagrant VM according to the configuration contained in `Vagrantfile` and then it will provision it by running the `provision.sh` script.
 
-Further information about the specific steps executed during this process can be found in the comments of the `create.sh`, `provision.sh` and `Vagrantfile` files.
+Further information about the specific steps executed during this process can be found in the comments of the `provision.sh` and `Vagrantfile` files.
 
 # Requirements
  * Vagrant 1.6.3+
