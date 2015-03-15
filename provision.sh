@@ -7,9 +7,9 @@
 #  * https://gist.github.com/ConradIrwin/9077440
 #  * http://dpdk.org/doc/quick-start
 
-# # Install dependencies
+# Install dependencies
 sudo apt-get update
-sudo apt-get -y -q install git build-essential linux-headers-`uname -r`
+sudo apt-get -y -q install git clang doxygen hugepages build-essential linux-headers-`uname -r`
  
 # Get code from Git repo
 git clone http://dpdk.org/git/dpdk
