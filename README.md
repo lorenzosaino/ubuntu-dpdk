@@ -11,12 +11,28 @@ If you do not see it in the list, then install it with:
 
     $ vagrant box add chef/ubuntu-14.04
 
-At this stage, you are ready to set up the virtual machine with the Intel DPDK.
-Open a shell and move to the directory where this README file is located and type:
+At this stage, you are ready to set up the virtual machine with Intel DPDK.
+Open a shell, move to the directory where this README file is located and type:
 
     $ vagrant up
 
 This will create a Vagrant VM according to the configuration contained in `Vagrantfile` and then it will provision it by running the `provision.sh` script.
+
+You can then SSH to the newly created machine by executing:
+
+    $ vagrant ssh
+
+The virtual machine can then be suspended with:
+
+    $ vagrant suspend
+
+shut down with:
+
+    $ vagrant halt
+
+or destroyed with:
+
+    $ vagrant destory
 
 Further information about the specific steps executed during this process can be found in the comments of the `provision.sh` and `Vagrantfile` files.
 

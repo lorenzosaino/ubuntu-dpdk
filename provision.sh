@@ -10,6 +10,7 @@
 # Configure hugepages
 # You can later check if this change was successful with "cat /proc/meminfo"
 # Hugepages setup should be done as early as possible after boot
+# Note: hugepages setup does not persist across reboots
 HUGEPAGE_MOUNT=/mnt/huge
 echo 1024 | sudo tee /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 sudo mkdir ${HUGEPAGE_MOUNT}
@@ -51,6 +52,7 @@ echo "igb_uio" | sudo tee -a /etc/modules
  
 # Bind secondary network adapter
 # I need to set a second adapter in Vagrantfile
+# Note: NIC setup does not persist across reboots
 sudo ifconfig eth1 down
 sudo ${RTE_SDK}/tools/dpdk_nic_bind.py --bind=igb_uio eth1
 
