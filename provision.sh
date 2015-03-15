@@ -31,7 +31,13 @@ make
 
 # Install kernel modules
 sudo modprobe uio
-sudo insmod build/kmod/igb_uio.ko
+sudo insmod ${RTE_SDK}/build/kmod/igb_uio.ko
+
+# Make uio and igb_uio installations persist across reboots 
+sudo ln -s ${RTE_SDK}/build/kmod/igb_uio.ko /lib/modules/`uname -r`
+sudo depmod -a
+echo "uio" | sudo tee -a /etc/modules
+echo "igb_uio" | sudo tee -a /etc/modules
  
 # Configure hugepages
 # You can later check if this change was successful with "cat /proc/meminfo"
