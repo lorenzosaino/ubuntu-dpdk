@@ -7,6 +7,14 @@
 #  * https://gist.github.com/ConradIrwin/9077440
 #  * http://dpdk.org/doc/quick-start
 
+# Configure hugepages
+# You can later check if this change was successful with "cat /proc/meminfo"
+# Hugepages setup should be done as early as possible after boot
+HUGEPAGE_MOUNT=/mnt/huge
+echo 1024 | sudo tee /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+sudo mkdir ${HUGEPAGE_MOUNT}
+sudo mount -t hugetlbfs nodev ${HUGEPAGE_MOUNT}
+
 # Install dependencies
 sudo apt-get update
 sudo apt-get -y -q install git clang doxygen hugepages build-essential linux-headers-`uname -r`
@@ -39,11 +47,7 @@ sudo depmod -a
 echo "uio" | sudo tee -a /etc/modules
 echo "igb_uio" | sudo tee -a /etc/modules
  
-# Configure hugepages
-# You can later check if this change was successful with "cat /proc/meminfo"
-echo 1024 | sudo tee /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
-sudo mkdir /mnt/huge
-sudo mount -t hugetlbfs nodev /mnt/huge
+
  
 # Bind secondary network adapter
 # I need to set a second adapter in Vagrantfile
