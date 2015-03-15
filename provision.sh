@@ -11,15 +11,11 @@
 sudo apt-get update
 sudo apt-get -y -q install git build-essential linux-headers-`uname -r`
  
-# # Get code from Git repo
+# Get code from Git repo
 git clone http://dpdk.org/git/dpdk
 
-# Apply patch that removes calls to the hardware POPCNT (population count) instruction
-# and uses a software one because VirtualBox does not support POPCNT passthrough
-# Further info: http://stackoverflow.com/questions/25442195/enable-popcnt-in-virtualbox
-cp /vagrant/popcnt-vbox.patch dpdk/
+# Move to the DPDK dir
 cd dpdk
-git apply popcnt-vbox.patch 
 
 # Path to the build dir
 export RTE_SDK=`pwd`
