@@ -15,6 +15,8 @@ HUGEPAGE_MOUNT=/mnt/huge
 echo 1024 | sudo tee /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 sudo mkdir ${HUGEPAGE_MOUNT}
 sudo mount -t hugetlbfs nodev ${HUGEPAGE_MOUNT}
+# Set Hugepages in /etc/fstab so they persist across reboots
+echo "hugetlbfs ${HUGEPAGE_MOUNT} hugetlbfs rw,mode=0777 0 0" | sudo tee -a /etc/fstab
 
 # Install dependencies
 sudo apt-get update
