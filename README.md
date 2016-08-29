@@ -3,13 +3,13 @@ This project contains scripts and configuration files to create a Ubuntu 14.04 v
 
 ## Setup
 To set up a Vagrant virtual machine, first make sure that you have [Vagrant](http://www.vagrantup.com) installed and configured (this code has been tested with version 1.6.3).
-Then, make sure that you have the `chef/ubuntu-14.04` box installed. You can check it by typing:
+Then, make sure that you have the `bento/ubuntu-14.04` box installed. You can check it by typing:
 
     $ vagrant box list
 
 If you do not see it in the list, then install it with:
 
-    $ vagrant box add chef/ubuntu-14.04
+    $ vagrant box add bento/ubuntu-14.04
 
 At this stage, you are ready to set up the virtual machine with Intel DPDK.
 Open a shell, move to the directory where this README file is located and type:
@@ -32,7 +32,7 @@ shut down with:
 
 or destroyed with:
 
-    $ vagrant destory
+    $ vagrant destroy
 
 Further information about the specific steps executed during this process can be found in the comments of the `provision.sh` and `Vagrantfile` files.
 
