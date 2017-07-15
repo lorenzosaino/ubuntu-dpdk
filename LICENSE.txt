@@ -1,4 +1,4 @@
-Copyright (c) 2016, Lorenzo Saino
+Copyright (c) 2017, Lorenzo Saino
 Contacts: http://github.com/lorenzosaino
 All rights reserved.
 
